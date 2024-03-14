@@ -1,0 +1,94 @@
+Assignment No- 3
+1) Write a program that demonstrates widening conversion from int to double and prints the result.
+Sol:-
+import java.util.Scanner;
+
+public class Widening {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter a int value");
+
+        int num1 = sc.nextInt();
+
+        double num2 = num1 ;           // Implicit Widening 
+        double num3 = (double) num1 ;  // Explicit widening 
+
+        System.out.println("Implicit Widening : "+num2);
+        System.out.println("Explicit Widening : "+num3);
+    }
+    
+}
+
+2) Create a program that demonstrates narrowing conversion from double to int and prints the result.
+Sol:-
+import java.util.Scanner;
+
+public class Narrowing {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter a  value");
+
+        double num1 =sc.nextDouble();
+        
+        int num2 = (int) num1;
+        System.out.println("num1 : "+num1);
+        System.out.println("converted num2 : "+num2);
+
+    }
+}
+
+3) Write a program that performs arithmetic operations involving different data types (int, double, float)
+and observes how Java handles widening conversions automatically.
+Sol:-
+import java.util.Scanner;
+
+public class Arithmetic{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter integer value :");
+        int num1=sc.nextInt();
+        System.out.println("Enter float Value :");
+        float num2=sc.nextFloat();
+        System.out.println("Enter Double value :");
+        double num3=sc.nextDouble();
+
+        System.out.println("arithmetic operations on different data types");
+        System.out.println("Addition : "+(num1+num2+num3));
+        System.out.println("Subtraction : "+(num1-num2-num3));
+        System.out.println("Multiplication : "+(num1*num2*num3));
+    }
+    
+}
+
+4) Write a Program that demonstrates widening conversion from int to (double,float, boolean, string) and
+prints the result.
+Sol:-
+import java.util.Scanner;
+import java.lang.*;
+
+public class WideningDemo {
+    public static void main(String[] args) {
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter a int value");
+
+        int num1 = sc.nextInt();
+
+        float num2 = num1 ;             
+       
+        System.out.println("Integer Value : "+num1);
+        System.out.println("Float Value : "+num2);
+
+        double num3 = (double) num1 ;
+        System.out.println("Double Value : "+num3);
+
+        String str = Integer.toString(num1);
+        System.out.println("String : "+ str);
+
+        boolean b = (num1>0);
+        System.out.println("boolean : "+ b);
+        
+        int number=Integer.parseInt(str);
+        System.out.println("String to interger : "+number);
+    }
+    
+}
