@@ -1,0 +1,218 @@
+Assignment No- 4
+1) Build a class Student which contains details about the Student and compile and run its
+instance.
+Sol:-
+package in.dac.assign;
+
+import java.util.Scanner;
+
+class studentDetails{
+	private String name;
+	private int roll;
+	private float mark;
+	
+	Scanner sc= new Scanner(System.in);
+	
+	void acceptdetails() {
+		System.out.print("Name  : ");
+		this.name=sc.next();
+		System.out.print("roll  : ");
+		this.roll=sc.nextInt();
+		System.out.print("Mark  : ");
+		this.mark=sc.nextFloat();
+		
+	}
+	
+	
+	void Printdetails() {
+		System.out.println("\nName  : "+name);
+		System.out.println("Roll  : "+roll);
+		System.out.println("Mark  : "+mark);
+
+	}
+	
+}
+
+//main class
+public class Student {
+	public static void main(String[] args) {
+		studentDetails s1 = new studentDetails();
+		s1.acceptdetails();
+		s1.Printdetails();
+	}
+}
+
+
+2)Write a Vehicle class with overloaded methods that have a different number of parameters.
+Demonstrate calling these overloaded methods with various numbers of arguments.
+Sol:-
+package in.dac.ex2;
+
+import java.util.Scanner;
+
+public class vehicleDetail {
+	private String name;
+	private String model;
+	private int price;
+	
+	Scanner sc = new Scanner(System.in);
+	
+	void acceptcar(String n,String m, int p) {
+		this.name=n;
+		this.model=m;
+		this.price=p;
+	}
+	void acceptcar(String n ,int p,String m) {
+		this.name=n;
+		this.model=m;
+		this.price=p;
+	}
+	void acceptcar(int p,String n,String m) {
+		
+		this.name=n;		
+		this.model=m;
+		this.price=p;
+	}
+	
+	void printcar1() {
+		System.out.println("\nCar Name   : "+this.name);
+		System.out.println(" Car Model  : "+this.model);
+		System.out.println(" Car Price  : "+this.price);
+	}
+	
+	void printcar2() {
+		System.out.println("\nCar Name   : "+this.name);
+		System.out.println(" Car Price  : "+this.price);
+		System.out.println(" Car Model  : "+this.model);
+		
+	}
+	
+	void printcar3() {
+		System.out.println("\nCar Price  : "+this.price);
+		System.out.println(" Car Name   : "+this.name);
+		System.out.println(" Car Model  : "+this.model);
+		
+	}
+	
+}
+
+// vehicle class
+package in.dac.ex2;
+
+import java.util.Scanner;
+
+public class vehicle {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		vehicleDetail c1 = new vehicleDetail();
+		System.out.print("Car Name   : ");
+		String n = sc.next();
+		System.out.print("Car Model  : ");
+//		sc.next();
+		String m = sc.next();
+		System.out.print("car Price  : ");
+		int p =sc.nextInt();
+		
+		c1.acceptcar(p, n, m);
+		c1.printcar3();
+		
+		c1.acceptcar(n, p, m);
+		c1.printcar2();
+		
+		c1.acceptcar(n, m, p);
+		c1.printcar1();
+		
+	}
+}
+
+
+3)Create a class Employee with multiple overloaded methods that have different parameter types (e.g.,
+int, double, String). Demonstrate calling each overloaded method with appropriate arguments.
+Sol:-
+package in.dac.ex3;
+
+public class Employee{
+	private String name;
+	private int id;
+	private float salary;
+	
+	public void acceptDetail(String name,int id,float salary ) {
+		this.name=name;
+		this.id=id;
+		this.salary=salary;
+	}
+	public void acceptDetail(int id,float salary ) {
+		this.name="Pratik";
+		this.id=id;
+		this.salary=salary;
+	}
+	public void acceptDetail(String name,int id ) {
+		this.name=name;
+		this.id=id;
+		this.salary=100000;
+	}
+	public void acceptDetail(float salary,String name,int id ) {
+		this.name=name;	
+		this.id=id;
+		this.salary=salary;
+	}
+	public void acceptDetail( ) {
+		this.name="Rakesh";
+		this.id=001;
+		this.salary=45000.50f;
+	}
+	 public void showDetail( ) {
+		 System.out.println("\nName  : "+this.name);
+		 System.out.println("Emp Id  : "+this.id);
+		 System.out.println("Salary  : "+this.salary);
+		 
+	 }
+	
+}
+
+//Main Class
+package in.dac.ex3;
+
+import java.util.Scanner;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		Employee e1 = new Employee();
+		
+		System.out.println("without parameter :");
+		e1.acceptDetail();
+		e1.showDetail();
+		
+		System.out.println("with parameter :");
+		System.out.println("\nName    : ");
+		String s = sc.nextLine();
+	
+		System.out.println("Id      : ");
+		int id = sc.nextInt();
+		
+		System.out.println("Salary  : ");
+		float sal = sc.nextFloat();
+		
+//		e1.acceptDetail(id, sal); //ok
+//		e1.showDetail();
+//		
+//		e1.acceptDetail(s, id);  //ok
+//		e1.showDetail();
+//		
+//		e1.acceptDetail(sal, s, id);  //ok
+//		e1.showDetail();
+//		
+		e1.acceptDetail(s, id, sal);  //ok
+		
+		e1.showDetail();
+		
+		
+		
+		
+	}
+
+}
+
