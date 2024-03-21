@@ -1,0 +1,527 @@
+                                       PG-DAC CDAC MUMBAI
+                                         	 Assignment no-7
+                                          Programming Questions on Array
+
+1. Write a program to print elements of Array ? 
+Sol:-
+package in.dac.ex1;
+
+
+public class Array1 {
+	public static void main(String[] args) {
+		int[] arr = {0,1,2,3,4,5,6,7,8,9};
+		for(int i=0;i<10;i++) {
+			System.out.println(arr[i]);
+		}
+		System.out.println(arr.length);
+	}
+}
+
+
+2) Write a Java program to check the equality of two arrays?
+Sol:-
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class EqualArr {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] arr1 = {11,22,33};
+		int[] arr2 = {11,22,33};
+		int i,count=0;
+		
+		for(i=0;i<arr1.length;i++) {
+			if(arr1[i]==arr2[i]) {
+				count++;
+			}
+		}
+		if(count==arr1.length)
+			System.out.println("Equal");
+		else
+			System.out.println("Not Equal");
+		
+	}
+}
+
+
+3) Write a Java program to find all pairs of elements in an integer array whose sum is equal to a given number?
+Sol:-
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Pairs {
+	public static void main(String[] args) {
+		
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Enter a length");
+	int n = sc.nextInt();
+	int i,j,re,sum;
+	
+	int[] arr = new int[n]; 
+	
+	for(i=0;i<n;i++) {
+		System.out.print("Enter Element  :");
+		arr[i]=sc.nextInt();
+	}
+	
+	System.out.println("Enter a any number ");
+	re = sc.nextInt();
+	
+	for(i=0;i<n;i++) {
+		for(j=0;j<n;j++) {
+			sum = arr[i]+arr[j];
+			if(sum== re) {
+				System.out.printf("%d and %d  = %d\n",i+1,j+1,sum);
+			}
+		}
+	}
+	
+	
+	}
+
+}
+
+
+4)  Write a program to reverse an Array in java . 
+Sol:-
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Reverse {
+	Scanner sc = new Scanner(System.in);
+	int num;
+	void accpt(int[] arr,int n) {
+		for(int i=0;i<n;i++) {
+			num=n;
+			System.out.print("Enter Element : ");
+			arr [i] = sc.nextInt();
+		}
+	}
+	
+	void printarr(int[] arr) {
+		for(int i=0;i<num;i++) {
+			System.out.println("Element : "+arr [i]);
+			
+		}
+	}
+	
+	void reverse(int[] arr) {
+		int temp,k=arr.length-1;
+		
+		for(int i=0;i<num;i++) {
+			if(i<=k) {
+				temp=arr[i];
+				arr[i]=arr[k];
+				arr[k]=temp;
+				k--;
+			}
+			
+		}
+		System.out.println(" ");
+	}
+	
+
+}
+
+//main
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Program {
+	public static void main(String[] args) {
+		
+		Reverse r1 = new Reverse();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length of array : ");
+		int n = sc.nextInt(); 
+		int a[] = new int[n];
+		int b[] = new int[n];
+		
+		r1.accpt(a, n);
+		r1.printarr(a);
+		
+		r1.reverse(a);
+		System.out.println("Reverse Element of array : ");
+		r1.printarr(a);
+		
+		
+	}
+}
+
+
+5) Find out smallest and largest number in a given Array? 
+Sol:-
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class LargeSmall {
+	int num;
+	Scanner sc = new Scanner(System.in);
+	void accpetArr(int[] arr,int n) {
+		this.num=n;
+		for(int i=0;i<num;i++) {
+			arr[i]=sc.nextInt();
+			
+		}
+		sc.close();
+	}
+	
+	void printArr(int[] arr) {
+		int temp;
+		for(int i=0;i<num-1;i++) {
+			for(int j=0;j<num-1;j++) {
+				if(arr[j]>arr[j+1]) {
+					temp=arr[j];
+					arr[j]=arr[j+1];
+					arr[j+1]=temp;
+				}
+			}
+		}
+		System.out.println("Smallest Number  : "+arr[0]);
+		System.out.println("Largest Number   : "+arr[num-1]);
+	}
+}
+
+//main
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Program {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the length");
+		int n = sc.nextInt();
+	
+		int[] arr = new int[n];
+		
+		LargeSmall ls = new LargeSmall();
+		
+		ls.accpetArr(arr,n);
+		ls.printArr(arr);
+		
+	sc.close();	
+	}
+}
+
+
+6) .Print the third-largest number in an array without sorting it 
+Input: [ 24,54,31,16,82,45,67]
+Output: 54 (82 and 67 are the largest and second-largest)
+Sol:-
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Largest3 {
+	 Scanner sc = new Scanner(System.in);
+	int num;
+	void acceptArr(int[] arr,int n) {
+		num=n;
+		for(int i=0;i<n;i++) {
+			System.out.print("Enter Element  : ");
+			arr [i]= sc.nextInt();
+		}
+	}
+	
+	void printthird(int[] arr) {
+		
+		if(num<3) {
+			System.out.println("Invalid Input");
+			return ;
+		}
+		
+		int first = arr[0];
+		for(int i=0;i<num;i++) {
+			if(arr[i]>first) {
+				first=arr[i];
+			}
+		}
+		
+		int second=arr[0];
+		for(int i=0;i<num;i++) {
+			if(arr[i]>second && arr[i]<first) {
+				second=arr[i];
+			}
+		}
+		
+		int third=arr[0];
+		for(int i=0;i<num;i++) {
+			if(arr[i]>third && arr[i]<second) {
+				third=arr[i];
+			}
+		}
+		
+		System.out.println(third+" ("+first+" and "+second+" are the largest and second-largest)");
+		
+	}
+	
+}
+
+\\main
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Program {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Largest3 lrg = new Largest3();
+		
+		System.out.println("Enter the length : ");
+		int n = sc.nextInt();
+		
+		int[] arr = new int[n];
+		
+			
+		
+		lrg.acceptArr(arr, n);
+		lrg.printthird(arr);
+		sc.close();
+	}
+}
+
+
+7)Write a program to merge two arrays of integers by reading one number at a time from each array until  one of the array is exhausted, and then concatenating the remaining numbers.
+ Input: [23,60,94,3,102] and [42,16,74]
+ Output: [23,42,60,16,94,74,3,102]
+Sol:-
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class MergeArray {
+	Scanner sc = new Scanner(System.in);
+	void acceptArr(int[] arr) {
+		
+		for(int i=0;i<arr.length;i++) {
+			System.out.println("Enter Element  : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("\n");
+		
+	}
+	
+	void printArr(int[] a,int[] b,int[] c) {
+		int j=0;
+		for(int i=0;i<c.length;i++) {
+			if(j<a.length)
+				c[i]=a[j];
+			i++;
+			if(j<b.length)
+				c[i]=b[j];
+			j++;
+		}
+		for(int i=0;i<c.length;i++) {
+			System.out.println(c[i]);
+		}
+		
+	}
+}
+
+//main
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Program {
+
+	private static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		MergeArray ma = new MergeArray();
+		System.out.println("Enter the length of A ");
+		int n1 =sc.nextInt();
+		int[] a = new int[n1];
+		ma.acceptArr(a);
+		
+		System.out.println("Enter the length of B ");
+		int n2 =sc.nextInt();
+		int[] b = new int[n2];
+		int[] c = new int[n1+n2];
+		ma.acceptArr(b);
+		
+		ma.printArr(a, b, c);
+		
+		
+	}
+ 
+}
+
+
+ 8).Write a program which takes an array of integers and prints the running average of 3 consecutive integers. 
+In case the array has fewer than 3 integers, there should be no output.
+ Input: [5,14,35,89,140]
+Output: [18, 46, 88] 
+(Explanation: 18=(5+14+35/3, 46=(14+35+89)/3, ...)
+Sol:-
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class AverageArray {
+	Scanner sc = new Scanner(System.in);
+	void acceptArr(int[] arr) {
+		
+		for(int i=0;i<arr.length;i++) {
+			System.out.println("Enter Element  : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("\n");
+		
+	}
+	void printArr(int[] a,int[] b) {
+		int avg;
+		if(a.length<3) {
+			System.out.println("Invalid Input");
+			return ;
+		}
+		for(int i=0;i<a.length-2;i++) {
+			avg=(a[i]+a[i+1]+a[i+2])/3;
+			if(i<b.length)
+				b[i]=avg;
+		}
+		for(int i=0;i<b.length;i++)
+			System.out.println(b[i]);
+	}
+}
+
+//main
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Program {
+	
+	private static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		AverageArray aa= new AverageArray();
+		System.out.println("Enter the length of A ");
+		int n1 =sc.nextInt();
+		int[] a = new int[n1];
+		
+		int[] b = new int[n1-2];
+		
+		aa.acceptArr(a);
+		aa.printArr(a,b);
+	}
+}
+
+
+9) Write a program which generates the series 1,4,27,16,125,36
+Sol:-
+package in.dac.ex;
+
+public class SeriesArr {
+	
+	void PrintSeries(int[] arr) {
+		for(int i=0;i<arr.length;i++) {
+			if((i+1)%2==0) 
+				System.out.println((int)Math.pow(i+1, 2));
+			else
+				System.out.println((int)Math.pow(i+1, 3));
+		}
+	}
+		 
+}
+
+//main
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Program {
+
+	private static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		SeriesArr sa = new SeriesArr();
+		System.out.println("Enter the length ");
+		int n1 =sc.nextInt();
+		int[] a = new int[n1];
+		sa.PrintSeries(a);
+
+	}
+
+}
+
+
+10) Given an array of integers, print whether the numbers are in ascending order or in descending order or in random order without sorting
+ Input: [5,14,35,90,139] Output: Ascending 
+ Input: [88,67,35,14,-12] Output: Descending
+Input: [65,14,129,34,7] Output: Random 
+Sol:-
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Random {
+	
+	Scanner sc = new Scanner(System.in);
+	void acceptArr(int[] arr) {
+		
+		for(int i=0;i<arr.length;i++) {
+			System.out.println("Enter Element  : ");
+			arr[i] = sc.nextInt();
+		}
+		System.out.println("\n");
+		
+	}
+	
+	void printRandom(int[] a) {
+		int j=0,k=0;
+		for(int i=0;i<a.length-1;i++) {
+			if(a[i]>a[i+1]) {
+				k++;
+			}
+			else if(a[i]<a[i+1]) {
+				j++;
+			}
+			
+		}
+		
+		if(j==a.length-1) 
+			System.out.println("The numbers are in Ascending order");
+		
+		else if(k==a.length-1) 
+			System.out.println("The numbers are in descending order");
+		
+		else
+			System.out.println("The numbers are in Random order");
+		
+	}
+
+}
+
+\\main
+package in.dac.ex;
+
+import java.util.Scanner;
+
+public class Program {
+	
+	private static Scanner sc = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		
+		Random r1 = new Random();
+		
+		System.out.println("Enter the length ");
+		int n1 =sc.nextInt();
+		int[] a = new int[n1];
+		
+		r1.acceptArr(a);
+		r1.printRandom(a);
+		
+	}
+
+}
+
+
+
+
